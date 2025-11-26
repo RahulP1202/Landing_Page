@@ -27,65 +27,48 @@ const achievements = [
 
 export default function About() {
   return (
-    // Changed section background to a subtle light shade (bg-stone-100)
-    <section id="about" className="py-24 bg-stone-100 relative overflow-hidden">
-      {/* Removed the complex background grid effect */}
-      <div className="relative max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div>
-            {/* Changed text color to dark, and emphasis color to amber-700 (muted gold). Font is serif. */}
-            <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6 text-gray-900">
-              Building the <span className="text-amber-700">Future</span>
-            </h2>
+    <section id="about" className="py-24 bg-[#f5ecdb]">
+      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-[1.1fr_0.9fr] gap-12 items-center text-[#1b1f3b]">
+        <div>
+          <p className="text-sm uppercase tracking-[0.4em] text-[#c8a96a] mb-4">Who we are</p>
+          <h2 className="text-5xl md:text-6xl font-serif font-bold mb-6">
+            Building the <span className="text-[#d4af37]">Future</span> of Learning
+          </h2>
+          <p className="text-lg md:text-xl text-[#2c2c2c] mb-6 font-serif leading-relaxed">
+            PyGenicArc is where innovation meets education and development. We create intelligent ecosystems
+            that empower institutions, faculty, and students to thrive in the digital age.
+          </p>
+          <p className="text-base md:text-lg text-[#2c2c2c] mb-8 font-serif leading-relaxed">
+            From AI-powered LMS platforms to compliance-ready accreditation suites, our solutions are built
+            to be scalable, data-driven, and relentlessly user-centric.
+          </p>
 
-            <p className="text-xl text-gray-700 mb-8 leading-relaxed font-serif">
-              PyGenicArc is where innovation meets education and development. We're not just building
-              software - we're creating ecosystems that empower businesses and individuals to thrive
-              in the digital age.
-            </p>
-
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed font-serif">
-              From AI-powered learning management systems to enterprise applications, our solutions
-              are designed to be scalable, intelligent, and user-centric. We believe in the power of
-              technology to transform lives and businesses.
-            </p>
-
-            <div className="grid grid-cols-2 gap-4 mb-8">
-              {achievements.map((achievement, index) => (
-                <div key={index} className="flex items-start gap-2">
-                  {/* Changed check icon color to amber-700 */}
-                  <CheckCircle2 className="w-5 h-5 text-amber-700 mt-1 flex-shrink-0" />
-                  <span className="text-gray-700 text-sm font-serif">{achievement}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="space-y-6">
-            {highlights.map((highlight, index) => (
-              <div
-                key={index}
-                // Changed card from dark gradient to light, and border/hover accent to amber-700
-                className="bg-white border border-gray-300 rounded-xl p-6 hover:border-amber-700 transition-all duration-300 hover:shadow-lg hover:shadow-amber-500/20"
-              >
-                <div className="flex items-start gap-4">
-                  {/* Changed icon container background and icon color to amber-700 */}
-                  <div className="w-12 h-12 bg-amber-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <highlight.icon className="w-6 h-6 text-amber-700" />
-                  </div>
-                  <div>
-                    {/* Changed text color to dark, and font to serif */}
-                    <h3 className="text-xl font-serif font-semibold text-gray-900 mb-2">
-                      {highlight.title}
-                    </h3>
-                    <p className="text-gray-600 leading-relaxed font-serif">
-                      {highlight.description}
-                    </p>
-                  </div>
-                </div>
+          <div className="grid sm:grid-cols-2 gap-4">
+            {achievements.map((achievement) => (
+              <div key={achievement} className="flex items-start gap-3 bg-white/70 rounded-xl p-4 shadow-sm">
+                <CheckCircle2 className="w-5 h-5 text-[#d4af37] mt-1" />
+                <span className="text-sm text-[#2c2c2c] font-serif">{achievement}</span>
               </div>
             ))}
           </div>
+        </div>
+
+        <div className="space-y-5">
+          {highlights.map((highlight, index) => (
+            <div
+              key={highlight.title}
+              className="rounded-2xl p-6 shadow-lg shadow-black/10 border border-[#eadbc0] flex gap-4 items-start transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-950/60"
+              style={{ background: ['#e8d3b0', '#ddc29c', '#c9ac82'][index] }}
+            >
+              <div className="w-12 h-12 bg-white/40 rounded-xl flex items-center justify-center">
+                <highlight.icon className="w-6 h-6 text-[#1b1f3b]" />
+              </div>
+              <div>
+                <h3 className="text-xl font-serif font-semibold text-[#1b1f3b] mb-2">{highlight.title}</h3>
+                <p className="text-[#2c2c2c] font-serif leading-relaxed">{highlight.description}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
