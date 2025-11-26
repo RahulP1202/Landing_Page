@@ -1,45 +1,48 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navigation from './components/Navigation';
-import Hero from './components/Hero';
-import About from './components/About';
-import Services from './components/Services';
-import TrustedBy from './components/TrustedBy';
-import Blog from './components/Blog';
-import Portfolio from './components/Portfolio';
-import Pricing from './components/Pricing';
-import RequestDemo from './components/RequestDemo';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
-import LoginPage from './pages/LoginPage';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-function HomePage() {
+// Home sections
+import Navigation from "./components/Navigation";
+import Hero from "./components/Hero";
+import About from "./components/About";
+import Services from "./components/Services";
+import Portfolio from "./components/Portfolio";
+import Contact from "./components/Contact";
+import Footer from "./components/Footer";
+
+// Tools pages
+import LMS from "./pages/lms";
+import AIIntegrity from "./pages/ai";
+import NBA from "./pages/nba";
+import DSA from "./pages/dsa";
+import ELearning from "./pages/elearning";
+
+// Home Page layout
+function Home() {
   return (
     <div className="bg-black">
-      <Navigation />
       <Hero />
-      <TrustedBy />
       <About />
       <Services />
-      <Blog />
       <Portfolio />
-      <Pricing />
-      <RequestDemo />
       <Contact />
       <Footer />
     </div>
   );
 }
 
-function App() {
+export default function App() {
   return (
-    <Router>
+    <BrowserRouter>
+      <Navigation />
+
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/lms" element={<LMS />} />
+        <Route path="/ai-suite" element={<AIIntegrity />} />
+        <Route path="/nba" element={<NBA />} />
+        <Route path="/dsa" element={<DSA />} />
+        <Route path="/elearning" element={<ELearning />} />
       </Routes>
-    </Router>
+    </BrowserRouter>
   );
 }
-
-export default App;
-
